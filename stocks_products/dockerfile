@@ -1,0 +1,23 @@
+# Используем официальный образ Python
+FROM python:3.10
+
+RUN apt update
+# Устанавливаем рабочую директорию в /app
+WORKDIR /app
+
+# Копируем зависимости (requirements.txt) в рабочую директорию
+COPY requirements.txt .
+
+ENV DEBUG=True
+ENV SECRET_KEY=django-insecure-nw^y+m^wmxza1asgk+)!ua2qx9)g+#v=6%76-9i8i(6eqiw94j
+# Устанавливаем зависимости
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Копируем текущий каталог в рабочую директорию контейнера
+COPY . .
+
+# Экспортируем порт 8000, который будет использоваться Django
+EXPOSE 8000
+
+# Команда для запуска Django приложения
+CMD ["python3", "manage.py", "runserver", "0.0.0.0:8000"]
