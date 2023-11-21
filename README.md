@@ -2,7 +2,7 @@
 [dockerfile](..%2Fdockerfile) для сборки образа nginx с кастомной страницей приветствия
 ## 2 задание:
 
-[dockerfile](dockerfile) для сборки образа с django приложением 
+[dockerfile](stocks_products/dockerfile) для сборки образа с django приложением 
 
 Для запуска api в контейнере выполните последовательность команд:
 
